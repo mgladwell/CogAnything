@@ -1,6 +1,8 @@
 # CogAnything
 CogAnything is a powerful AI agent that leverages a mixture of Azure Cognitive Services along with Azure's OpenAI architecture to provide reliable and accurate answers to a wide range of questions. It is capable of using various tools and services such as Entity Recognition, Language Detection, Key Phrase Extraction, Sentiment Analysis, and Text Translation to generate intelligent responses.
 
+Most of this was done on the Train, and so it is not completely perfect, but is an amazing Proof of Concept. 
+
 ## Examples
 The provided images demonstrate the thought process of the agent and its implementation in Gradio:
 
