@@ -1,6 +1,8 @@
 # CogAnything
 CogAnything is a powerful AI agent that leverages a mixture of Azure Cognitive Services along with Azure's OpenAI architecture to provide reliable and accurate answers to a wide range of questions. It is capable of using various tools and services such as Entity Recognition, Language Detection, Key Phrase Extraction, Sentiment Analysis, and Text Translation to generate intelligent responses.
 
+Most of this was done on the Train, and so it is not completely perfect, but is an amazing Proof of Concept. 
+
 ## Examples
 The provided images demonstrate the thought process of the agent and its implementation in Gradio:
 
@@ -23,21 +25,31 @@ Ensure you have your API keys and required information for the following service
 
 - OpenAI API
 - Azure Cognitive Services
+- Azure Translate
 
 Update the following lines in the code with the appropriate API keys and information:
 
 ```python
 os.environ["OPENAI_API_KEY"] = ""
-os.environ["OPENAI_API_BASE"] = ""
-os.environ["OPENAI_API_VERSION"] = ""
-os.environ["OPENAI_API_TYPE"] = ""
+# ENDPOINT IN AZURE
+os.environ["OPENAI_API_BASE"] = "https://cog-<>.openai.azure.com/"
+# MODEL NAME
+os.environ["OPENAI_API_VERSION"] = "gpt-35-turbo"
+#AZURE
+os.environ["OPENAI_API_TYPE"] = "azure"
 
+#OPENAI API KEY AGAIN
 API_KEY = ""
+#DEPLOYMENT NAME IN AZURE
 DEPLOYMENT_NAME = ""
 
-subscription_key = ""
-endpoint = ""
+## CogServices
 
+#ENDPOINT
+subscription_key = ""
+endpoint = "https://<>.cognitiveservices.azure.com/"
+
+## Translate
 subscription_key_translate = ""
 region = ""
 ```
