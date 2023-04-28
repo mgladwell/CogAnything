@@ -23,21 +23,31 @@ Ensure you have your API keys and required information for the following service
 
 - OpenAI API
 - Azure Cognitive Services
+- Azure Translate
 
 Update the following lines in the code with the appropriate API keys and information:
 
 ```python
 os.environ["OPENAI_API_KEY"] = ""
-os.environ["OPENAI_API_BASE"] = ""
-os.environ["OPENAI_API_VERSION"] = ""
-os.environ["OPENAI_API_TYPE"] = ""
+# ENDPOINT IN AZURE
+os.environ["OPENAI_API_BASE"] = "https://cog-<>.openai.azure.com/"
+# MODEL NAME
+os.environ["OPENAI_API_VERSION"] = "gpt-35-turbo"
+#AZURE
+os.environ["OPENAI_API_TYPE"] = "azure"
 
+#OPENAI API KEY AGAIN
 API_KEY = ""
+#DEPLOYMENT NAME IN AZURE
 DEPLOYMENT_NAME = ""
 
-subscription_key = ""
-endpoint = ""
+## CogServices
 
+#ENDPOINT
+subscription_key = ""
+endpoint = "https://<>.cognitiveservices.azure.com/"
+
+## Translate
 subscription_key_translate = ""
 region = ""
 ```
