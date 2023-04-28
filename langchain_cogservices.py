@@ -16,16 +16,23 @@ import re
 
 ## ENTER IN HERE:
 os.environ["OPENAI_API_KEY"] = ""
-os.environ["OPENAI_API_BASE"] = ""
-os.environ["OPENAI_API_VERSION"] = ""
-os.environ["OPENAI_API_TYPE"] = ""
+# ENDPOINT IN AZURE
+os.environ["OPENAI_API_BASE"] = "https://cog-<>.openai.azure.com/"
+# MODEL NAME
+os.environ["OPENAI_API_VERSION"] = "gpt-35-turbo"
+#AZURE
+os.environ["OPENAI_API_TYPE"] = "azure"
 
+#OPENAI API KEY AGAIN
 API_KEY = ""
+#DEPLOYMENT NAME IN AZURE
 DEPLOYMENT_NAME = ""
 
 ## CogServices
+
+#ENDPOINT
 subscription_key = ""
-endpoint = ""
+endpoint = "https://<>.cognitiveservices.azure.com/"
 
 ## Translate
 subscription_key_translate = ""
@@ -222,15 +229,13 @@ Begin!
 #Function to work with Gradio
 
 #Demo Example. 
-def extract_final_answer(text):
-    match = re.search(r'Final Answer:(.*?)(\n|$)', text)
-    if match:
-        return match.group(1).strip()
-    return "Final Answer not found."
+def extract_until_line_break(text):
+    result = text.split('\n', 1)[0].strip()
+    return result
 
 def start(text):
     output = agent.run(template + text)
-    final_answer = extract_final_answer(output)
+    final_answer = extract_until_line_break(output)
     return final_answer
 
 demo = gr.Interface(fn = start, inputs = gr.Textbox(lines=2, placeholder= "Ask me Anything!"), outputs = gr.Textbox(lines=2))
