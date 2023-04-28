@@ -65,5 +65,5 @@ demo = gr.Interface(fn=start, inputs=gr.Textbox(lines=2, placeholder="Ask me Any
 demo.launch()
 ```
 
-#Contributions
+## Contributions
 Feel free to contribute to this project by submitting pull requests, reporting bugs, or suggesting new features. Your feedback is much appreciated!
