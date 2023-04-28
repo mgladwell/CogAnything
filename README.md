@@ -16,7 +16,7 @@ The agent can intelligently choose which Azure Cognitive Service to use, dependi
 To use CogAnything, you will need to install the following dependencies:
 
 ```python
-pip install langchain pydantic requests gradio azure-ai-textanalytics==5.2.0 openai
+pip install langchain==0.0.135 pydantic requests gradio azure-ai-textanalytics==5.2.0 openai
 ```
 
 ## Setup
