@@ -12,7 +12,7 @@ import requests
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 import gradio as gr
-
+import re
 
 ## ENTER IN HERE:
 os.environ["OPENAI_API_KEY"] = ""
@@ -222,8 +222,16 @@ Begin!
 #Function to work with Gradio
 
 #Demo Example. 
+def extract_final_answer(text):
+    match = re.search(r'Final Answer:(.*?)(\n|$)', text)
+    if match:
+        return match.group(1).strip()
+    return "Final Answer not found."
+
 def start(text):
-    agent.run(template + text)
+    output = agent.run(template + text)
+    final_answer = extract_final_answer(output)
+    return final_answer
 
 demo = gr.Interface(fn = start, inputs = gr.Textbox(lines=2, placeholder= "Ask me Anything!"), outputs = gr.Textbox(lines=2))
 demo.launch()
